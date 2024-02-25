@@ -1,0 +1,40 @@
+<?php
+global $post;
+$args = array( 'posts_per_page' => 6, 'post_type' => 'work', 'orderby' => 'menu_order', 'order' => 'ASC' );
+$myposts = get_posts( $args );
+foreach( $myposts as $post ) : setup_postdata( $post ); ?>
+    
+    <div class="col-sm-6 col-md-4">
+        <div class="portfolio-item">
+            <?php the_post_thumbnail('large'); ?>
+            <div class="portfolio-details">
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                <?php echo get_post_meta($post->ID, 'sub_title', true ); ?>
+            </div><!-- /.portfolio-details -->
+        </div><!-- /.portfolio-item -->
+    </div>
+
+<?php endforeach;
+wp_reset_query();
+?>
+
+
+
+
+<?php
+                 global $post;
+			    $args = array( 'post_per_page' => 6, 'post_type' => 'work', 'order_by' => 'menu_order', 'order' => 'ASC' );
+			    $myposts = get_posts( $args);
+			    foreach( $myposts as $post ): setup_postdata( $post ) ; ?>
+    
+					<div class="col-sm-6 col-md-4">
+					<div class="portfolio-item">
+						<?php the_post_thumbnail('large'); ?>
+						<div class="portfolio-details">
+							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<?php echo get_post_meta($post -> ID, 'sub_title', true ); ?>
+						</div><!-- /.portfolio-details -->
+					</div><!-- /.portfolio-item -->
+				</div>
+    
+			     <?php endforeach; wp_reset_query(); ?>
